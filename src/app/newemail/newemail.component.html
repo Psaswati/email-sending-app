@@ -1,0 +1,35 @@
+<div class="container pl-5 pb-5 pr-5 pt-3 w-50">
+    <div class="row mb-4 text-primary">
+        <h1>Send New Email</h1>
+    </div>
+    <div class="row form-group mb-5">
+        <input type="email" class="form-control" [(ngModel)]="email" required>
+        <label class="form-control-placeholder p-0" for="email">To</label>
+    </div>
+    <div class="row form-group mb-5">
+        <input type="text" class="form-control" [(ngModel)]="subject" required>
+        <label class="form-control-placeholder p-0" for="subject">Subject</label>
+    </div>
+    <div class="row form-group mb-5">
+        <input type="text" class="form-control" [(ngModel)]="message" required>
+        <label class="form-control-placeholder p-0" for="message">Message</label>
+    </div>
+    <div *ngIf="loading" class="center w-25 mb-5">
+        <div class="spinner-border ml-5" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="success " class="center w-25 mb-5">
+        <img src="../../assets/preview.gif" class="img-thumbnail" />
+    </div>
+    <div class="row">
+        <div class="col-md-6 pl-0">
+            <button class="btn btn-secondary" (click)="send()" [disabled]="!(message && subject && email)">SEND</button>
+        </div>
+        <div class="col-md-6 pr-0">
+            <button type="button" (click)="resetbutton()" class="btn btn-primary float-right">RESET
+            </button>
+        </div>
+    </div>
+
+</div>
